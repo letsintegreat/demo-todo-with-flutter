@@ -62,12 +62,12 @@ class User {
       id: map['\$id'],
       name: map['name'],
       registration:
-          DateTime.fromMillisecondsSinceEpoch(map['registration'] * 1000),
-      status: map['status'],
-      passwordUpdate: map['passwordUpdate'],
+          DateTime.parse(map['registration']),
+      status: map['status'] ? 1 : 0,
+      passwordUpdate: DateTime.parse(map['passwordUpdate']).millisecondsSinceEpoch,
       email: map['email'],
       emailVerification: map['emailVerification'],
-      prefs: Map<String, dynamic>.from(map['prefs']),
+      prefs: Map<String, dynamic>.from(map['prefs'])['data'],
     );
   }
 

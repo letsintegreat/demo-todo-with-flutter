@@ -249,8 +249,6 @@ class _HomePageState extends State<HomePage> {
                       try {
                         var added = await ApiService.instance.getAddData(
                           addData: checkData,
-                          write: ['user:${widget.user.id}'],
-                          read: ['user:${widget.user.id}'],
                         );
                         print(added);
                         _getDataInsert();
@@ -272,11 +270,10 @@ class _HomePageState extends State<HomePage> {
       source: ImageSource.gallery,
     );
     if (image == null) return;
-    final file = await MultipartFile.fromFile(image.path);
+    final file = InputFile(path: image.path);
     try {
       final res = await ApiService.instance.uploadPicture(
         file,
-        ['user:${widget.user.id}'],
       );
       final id = res['\$id'];
       if (id != null) {
