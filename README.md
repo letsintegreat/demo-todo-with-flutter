@@ -18,20 +18,22 @@ We need to make a few configuration changes to your Appwrite server.
 1. Add a new Flutter App (Android or iOS or both) in Appwrite and enter application id of your application (io.appwrite.todo, etc) 
 ![image](https://user-images.githubusercontent.com/73419211/122684732-e9eac700-d226-11eb-954c-f7cb5327d042.png)
 
-2. Create a new collection with the following properties
+2. Create a new bucket
 
-  - Rules
+3. Create a new database and then a new collection with the following properties
 
-Add the following rules to the collection.
+  - Attributes
+
+Add the following attributes to the collection.
 
     Make sure that your key exactly matches the key in the images
    
-  ![image](https://user-images.githubusercontent.com/73419211/122684906-0a675100-d228-11eb-91d0-ff70e216b7cb.png)
-  ![image](https://user-images.githubusercontent.com/73419211/122684925-2965e300-d228-11eb-87a6-301cff857fb9.png)
+   ![image](https://user-images.githubusercontent.com/37345795/197772174-b361398e-90e7-4e50-af74-54745e63a7e9.png)
+
 
  - Permissions
 
-Add the following permissions to your collections. These permissions ensure that only registered users can access the collection.
+Add the following permissions to your collections as well as bucket. These permissions ensure that only registered users can access the collection.
 
 ![image](https://user-images.githubusercontent.com/73419211/122684974-819ce500-d228-11eb-93c6-4d2b05167633.png)
 
@@ -41,7 +43,9 @@ You have two options to deploy the front-end and we will cover both of them here
 
     FLUTTER_APP_ENDPOINT - Your Appwrite endpoint
     FLUTTER_APP_PROJECT - Your Appwrite project ID
+    FLUTTER_APP_DATABASE_ID - Your Appwrite database ID
     FLUTTER_APP_COLLECTION_ID - Your Appwrite collection ID
+    FLUTTER_APP_BUCKET_ID - Your Appwrite bucket ID
   
 ## Run locally
 
@@ -50,12 +54,14 @@ Follow these instructions to run the demo app locally
 $ git clone https://github.com/devkishor8007/todo-with-flutter.git
 $ cd todo-with-flutter
 
-Make a one file in the Clone Repo called constant.dart
+Make a one file in the Clone Repo called lib/res/constant.dart
 
     class AppConstant {
-    static const String projectid = 'your appwrite project id';
-    static const String endPoint = 'your own endpoint';
-    static const String database = 'your appwrite database id';
+      static const String projectid = 'your appwrite project id';
+      static const String endPoint = 'your own endpoint';
+      static const String database = 'your appwrite database id';
+      static const String collection = 'your appwrite collection id';
+      static const String bucket = 'your appwrite bucket id';
     }
 
 Now run the following commands and you should be good to go 💪🏼
